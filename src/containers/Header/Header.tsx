@@ -1,8 +1,8 @@
-import { Categories, Navbar } from '../components/exports';
+import { Categories, Navbar } from '../../components/exports';
 
 const Header = () => {
   return (
-    <header>
+    <header className='header'>
       <Navbar />
       <Categories />
     </header>
