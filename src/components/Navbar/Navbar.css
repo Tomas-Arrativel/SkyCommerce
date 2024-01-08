@@ -1,0 +1,37 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem 15rem;
+  width: 100%;
+  background-color: var(--dark-aqua);
+}
+
+.nav__title {
+  font-size: 2rem;
+  font-weight: 1000;
+  color: var(--black);
+}
+.nav__title span {
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.nav__search {
+  width: 500px;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--aqua);
+  border-radius: 3px;
+  color: var(--black);
+  background-color: var(--gray);
+  border: none;
+}
+.nav__search:focus {
+  outline: 2px solid #6d9e9797;
+}
+
+.nav__chart {
+  color: var(--black);
+  font-size: 1.3rem;
+}
