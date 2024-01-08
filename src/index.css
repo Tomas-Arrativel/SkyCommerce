@@ -7,6 +7,7 @@
   --dark-aqua: #2a5e56;
   --brown: #896353;
   --pale-brown: #dec8bf;
+  --black: #122926;
 
   /* Font family */
   --font: 'Nunito Sans', sans-serif;
@@ -17,4 +18,5 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-size: 15px;
 }
