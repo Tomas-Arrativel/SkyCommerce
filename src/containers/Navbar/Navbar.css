@@ -1,7 +1,3 @@
-.nav-container {
-  background-color: var(--dark-aqua);
-  padding-bottom: 1rem;
-}
 .nav {
   display: flex;
   justify-content: space-between;
@@ -37,6 +33,13 @@
 @media (max-width: 900px) {
   .nav {
     padding: 1rem 2rem;
+  }
+}
+
+@media (max-width: 735px) {
+  .nav-container {
+    background-color: var(--dark-aqua);
+    padding-bottom: 1rem;
   }
 }
 
