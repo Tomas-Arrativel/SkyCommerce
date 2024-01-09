@@ -1,0 +1,19 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem 15rem;
+  width: 100%;
+  background-color: var(--dark-aqua);
+}
+
+.nav__title {
+  font-size: 2rem;
+  font-weight: 1000;
+  color: var(--black);
+}
+.nav__title span {
+  font-weight: 700;
+  font-size: 2rem;
+}
