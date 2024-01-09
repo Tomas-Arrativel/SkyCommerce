@@ -1,0 +1,44 @@
+.carousel {
+  background-color: var(--aqua);
+}
+.categories {
+  background-color: var(--aqua);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 14rem;
+  min-width: fit-content;
+}
+
+.categories__category {
+  color: var(--gray);
+  font-weight: 600;
+  pointer-events: stroke;
+}
+.categories__category:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 1360px) {
+  .categories {
+    padding: 1rem 8rem;
+  }
+}
+
+@media (max-width: 1050px) {
+  .categories {
+    padding: 1rem 4rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .categories {
+    padding: 1rem 2rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .categories {
+    padding: 1rem 1rem;
+  }
+}

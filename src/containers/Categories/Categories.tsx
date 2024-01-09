@@ -1,7 +1,42 @@
+import { motion } from 'framer-motion';
+
 import './Categories.css';
+import { useEffect, useRef, useState } from 'react';
+
+const categories = [
+  'Technology',
+  'Clothes',
+  'Groceries',
+  'Decorations',
+  'Furnitures',
+  'Cars',
+  'Motorcycles',
+];
 
 const Categories = () => {
-  return <div>Categories</div>;
+  const [width, setWitdh] = useState<number>(0);
+
+  const carousel: any = useRef();
+
+  useEffect(() => {
+    setWitdh(carousel.current.scrollWidth - carousel.current.offsetWidth);
+  }, []);
+
+  return (
+    <motion.div ref={carousel} className='carousel'>
+      <motion.div
+        drag='x'
+        dragConstraints={{ right: 0, left: -width }}
+        className='categories'
+      >
+        {categories.map((cat, i) => (
+          <motion.div key={i}>
+            <p className='categories__category'>{cat}</p>
+          </motion.div>
+        ))}
+      </motion.div>
+    </motion.div>
+  );
 };
 
 export default Categories;
