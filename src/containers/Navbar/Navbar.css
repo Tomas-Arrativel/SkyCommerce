@@ -1,9 +1,13 @@
+.nav-container {
+  background-color: var(--dark-aqua);
+  padding-bottom: 1rem;
+}
 .nav {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
   align-items: center;
-  padding: 1rem 15rem;
+  padding: 1rem 14rem;
   width: 100%;
   background-color: var(--dark-aqua);
 }
@@ -16,4 +20,28 @@
 .nav__title span {
   font-weight: 700;
   font-size: 2rem;
+}
+
+@media (max-width: 1360px) {
+  .nav {
+    padding: 1rem 8rem;
+  }
+}
+
+@media (max-width: 1050px) {
+  .nav {
+    padding: 1rem 4rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .nav {
+    padding: 1rem 2rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .nav {
+    padding: 1rem;
+  }
 }
