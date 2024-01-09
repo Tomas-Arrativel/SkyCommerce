@@ -19,7 +19,10 @@ const Categories = () => {
   const carousel: any = useRef();
 
   useEffect(() => {
-    setWitdh(carousel.current.scrollWidth - carousel.current.offsetWidth);
+    const handleResize = () => {
+      setWitdh(carousel.current.scrollWidth - carousel.current.offsetWidth);
+    };
+    window.addEventListener('resize', handleResize);
   }, []);
 
   return (
