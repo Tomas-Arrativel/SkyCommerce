@@ -1,10 +1,13 @@
 import './App.css';
-import Header from './containers/Header/Header';
+import { Categories, Navbar } from './containers/exports';
 
 function App() {
   return (
     <main>
-      <Header />
+      <header>
+        <Navbar />
+        <Categories />
+      </header>
     </main>
   );
 }
