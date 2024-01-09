@@ -1,2 +1,2 @@
-export { default as Search } from './Search/Search';
-export { default as ShoppingCart } from './ShoppingCart/ShoppingCart';
+export { default as Search } from './Navbar/Search/Search';
+export { default as ShoppingCart } from './Navbar/ShoppingCart/ShoppingCart';
