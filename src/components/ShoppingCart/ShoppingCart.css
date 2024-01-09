@@ -1,0 +1,8 @@
+.cart__cart {
+  color: var(--black);
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+.cart__items {
+}
