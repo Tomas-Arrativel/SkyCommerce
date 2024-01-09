@@ -1,3 +1,8 @@
+.cart {
+  position: relative;
+  cursor: pointer;
+}
+
 .cart__cart {
   color: var(--black);
   font-size: 2.5rem;
@@ -5,4 +10,10 @@
 }
 
 .cart__items {
+  font-size: 1.05rem;
+  color: var(--gray);
+  position: absolute;
+  top: 4px;
+  left: 17px;
+  cursor: pointer;
 }
