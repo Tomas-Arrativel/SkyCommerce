@@ -31,3 +31,30 @@
 .search__button:hover {
   background-color: var(--brown);
 }
+
+@media (max-width: 1050px) {
+  .search__input {
+    width: 400px;
+  }
+}
+
+@media (max-width: 735px) {
+  .search {
+    padding: 0 2rem;
+  }
+  .search__input {
+    width: 100%;
+  }
+  .search__button {
+    right: 30px;
+  }
+}
+
+@media (max-width: 735px) {
+  .search {
+    padding: 0 1rem;
+  }
+  .search__button {
+    right: 1rem;
+  }
+}
