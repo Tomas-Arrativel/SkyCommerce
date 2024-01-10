@@ -1,0 +1,17 @@
+.offer {
+  background-color: #fff;
+  flex: 1;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.offer__title {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.offer__img {
+  height: 200px;
+}
