@@ -16,3 +16,13 @@
 .offer__img {
   height: 250px;
 }
+
+.offer__btn {
+  text-decoration: none;
+  color: var(--dark-aqua);
+  font-size: 1.1rem;
+}
+.offer__btn:hover {
+  text-decoration: underline;
+  color: var(--aqua);
+}
