@@ -24,3 +24,41 @@
   bottom: -15rem;
   padding: 1rem;
 }
+
+@media (max-width: 1360px) {
+  .offers__img {
+    background-position: center center;
+  }
+  .offers__container {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .offers__container {
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .offers {
+    justify-content: start;
+  }
+
+  .offers__img {
+    display: none;
+  }
+  .offers__container {
+    flex-wrap: wrap;
+    position: initial;
+    bottom: 0;
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .offers__container {
+    flex-direction: column;
+    padding: 0;
+  }
+}

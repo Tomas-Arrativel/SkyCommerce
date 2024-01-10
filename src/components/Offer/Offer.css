@@ -6,6 +6,7 @@
   flex-direction: column;
   padding: 1rem;
   gap: 1rem;
+  min-width: 200px;
 }
 
 .offer__title {
@@ -25,4 +26,29 @@
 .offer__btn:hover {
   text-decoration: underline;
   color: var(--aqua);
+}
+
+@media (max-width: 900px) {
+  .offer {
+    min-height: 100px;
+  }
+  .offer__img {
+    height: 150px;
+  }
+
+  .offer__title {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .offer__img {
+    min-height: 200px;
+  }
+}
+
+@media (max-width: 500px) {
+  .offer {
+    width: 100%;
+  }
 }
