@@ -1,11 +1,26 @@
+.carousel__container {
+  background-color: #fff;
+  padding: 1rem;
+}
+
+.carousel__products {
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.carousel__container h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
 .products__card {
   display: flex;
-  gap: 0.5rem;
+  gap: 1.5rem;
 }
 
 .card__product {
-  padding: 1rem;
+  pointer-events: none;
 }
-.card__product a img {
+.card__product img {
   height: 200px;
 }

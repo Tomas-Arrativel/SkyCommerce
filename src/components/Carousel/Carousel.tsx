@@ -53,19 +53,17 @@ const Carousel = ({ categorie }: CarouselProps) => {
 
       <motion.div ref={carousel} className='carousel__products'>
         <motion.div
+          className='products__card'
           drag='x'
           dragConstraints={{ right: 0, left: -width }}
-          className='products__card'
         >
           {data &&
             data.products.map((product: Product) => (
               <motion.div key={product.id} className='card__product'>
-                <a href={`${product.id}`}>
-                  <img
-                    src={product.images[0]}
-                    alt={`${product.title} ${product.id}`}
-                  />
-                </a>
+                <img
+                  src={product.images[0]}
+                  alt={`${product.title} ${product.id}`}
+                />
               </motion.div>
             ))}
         </motion.div>
