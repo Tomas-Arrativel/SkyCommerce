@@ -19,7 +19,7 @@ const Carousel = ({ categorie }: CarouselProps) => {
   const [width, setWitdh] = useState<number>(0);
   const [data, setData] = useState<any>();
 
-  const carousel: any = useRef();
+  const products: any = useRef();
 
   // Endpoint for api call
   let endpoint: string;
@@ -29,7 +29,7 @@ const Carousel = ({ categorie }: CarouselProps) => {
 
   useEffect(() => {
     const handleResize = () => {
-      setWitdh(carousel.current.scrollWidth - carousel.current.offsetWidth);
+      setWitdh(products.current.scrollWidth - products.current.offsetWidth);
     };
     window.addEventListener('resize', handleResize);
 
@@ -51,7 +51,7 @@ const Carousel = ({ categorie }: CarouselProps) => {
     <div className='carousel__container'>
       <h2>The best on {categorie}</h2>
 
-      <motion.div ref={carousel} className='carousel__products'>
+      <motion.div ref={products} className='carousel__products'>
         <motion.div
           className='products__card'
           drag='x'
