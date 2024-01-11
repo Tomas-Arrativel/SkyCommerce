@@ -1,0 +1,11 @@
+.products__card {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.card__product {
+  padding: 1rem;
+}
+.card__product a img {
+  height: 200px;
+}
