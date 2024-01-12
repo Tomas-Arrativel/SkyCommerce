@@ -5,7 +5,7 @@ import { fetchData } from '../../api/api';
 import './Carousel.css';
 
 interface CarouselProps {
-  category: string;
+  categorie: string;
 }
 
 // structure of a product
@@ -15,21 +15,22 @@ interface Product {
   title: string;
 }
 
-const Carousel = ({ category }: CarouselProps) => {
-  const [width, setWitdh] = useState<number>(0);
+const Carousel = ({ categorie }: CarouselProps) => {
+  const [width, setWidth] = useState<number>(0);
   const [data, setData] = useState<any>();
 
   const products: any = useRef();
 
   // Endpoint for api call
   let endpoint: string;
-  if (category === 'Technology') endpoint = '?limit=10&select=images,title';
-  else if (category === 'Decoration')
+  if (categorie === 'Technology') endpoint = '?limit=10&select=images,title';
+  else if (categorie === 'Decoration')
     endpoint = '?limit=10&skip=25&select=images';
 
   useEffect(() => {
+    // Resize function for the slider
     const handleResize = () => {
-      setWitdh(products.current.scrollWidth - products.current.offsetWidth);
+      setWidth(products.current.scrollWidth - products.current.offsetWidth);
     };
     window.addEventListener('resize', handleResize);
 
@@ -45,21 +46,30 @@ const Carousel = ({ category }: CarouselProps) => {
     };
 
     fetchDataAsync();
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, [category]);
+  }, []);
+
+  const handleLoad = () => {
+    // Ensure that the ref gets the correct value
+    setWidth(products.current.scrollWidth - products.current.offsetWidth);
+  };
 
   console.log(data);
   return (
     <div className='carousel__container'>
-      <h2>The best on {category}</h2>
+      <h2>The best on {categorie}</h2>
 
-      <motion.div ref={products} className='carousel__products'>
+      <motion.div
+        ref={products}
+        onLoad={handleLoad}
+        className='carousel__products'
+      >
         <motion.div
           className='products__card'
           drag='x'
-          dragConstraints={{ right: 0, left: -width + window.innerWidth }}
+          dragConstraints={{
+            right: 0,
+            left: -width,
+          }}
         >
           {data &&
             data.products.map((product: Product) => (
