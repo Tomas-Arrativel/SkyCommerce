@@ -27,25 +27,25 @@ const Carousel = ({ categorie }: CarouselProps) => {
   else if (categorie === 'Decoration')
     endpoint = '?limit=10&skip=25&select=images';
 
+  // handling window resize events, and fetching data
   useEffect(() => {
     // Resize function for the slider
-    const handleResize = () => {
-      setWidth(products.current.scrollWidth - products.current.offsetWidth);
-    };
-    window.addEventListener('resize', handleResize);
 
     // api call
     const fetchDataAsync = async () => {
       try {
         const result = await fetchData(endpoint);
         setData(result);
-        handleResize();
       } catch (error: any) {
         console.error('Error while obtaining data:', error.message);
       }
     };
-
     fetchDataAsync();
+
+    const handleResize = () => {
+      setWidth(products.current.scrollWidth - products.current.offsetWidth);
+    };
+    window.addEventListener('resize', handleResize);
   }, []);
 
   const handleLoad = () => {
