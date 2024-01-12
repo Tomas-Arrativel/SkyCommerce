@@ -5,7 +5,7 @@ import { fetchData } from '../../api/api';
 import './Carousel.css';
 
 interface CarouselProps {
-  categorie: string;
+  category: string;
 }
 
 // structure of a product
@@ -15,7 +15,7 @@ interface Product {
   title: string;
 }
 
-const Carousel = ({ categorie }: CarouselProps) => {
+const Carousel = ({ category }: CarouselProps) => {
   const [width, setWitdh] = useState<number>(0);
   const [data, setData] = useState<any>();
 
@@ -23,8 +23,8 @@ const Carousel = ({ categorie }: CarouselProps) => {
 
   // Endpoint for api call
   let endpoint: string;
-  if (categorie === 'Technology') endpoint = '?limit=10&select=images,title';
-  else if (categorie === 'Decoration')
+  if (category === 'Technology') endpoint = '?limit=10&select=images,title';
+  else if (category === 'Decoration')
     endpoint = '?limit=10&skip=25&select=images';
 
   useEffect(() => {
@@ -38,24 +38,28 @@ const Carousel = ({ categorie }: CarouselProps) => {
       try {
         const result = await fetchData(endpoint);
         setData(result);
+        handleResize();
       } catch (error: any) {
         console.error('Error while obtaining data:', error.message);
       }
     };
 
     fetchDataAsync();
-  }, []);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [category]);
 
   console.log(data);
   return (
     <div className='carousel__container'>
-      <h2>The best on {categorie}</h2>
+      <h2>The best on {category}</h2>
 
       <motion.div ref={products} className='carousel__products'>
         <motion.div
           className='products__card'
           drag='x'
-          dragConstraints={{ right: 0, left: -width }}
+          dragConstraints={{ right: 0, left: -width + window.innerWidth }}
         >
           {data &&
             data.products.map((product: Product) => (
