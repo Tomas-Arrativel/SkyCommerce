@@ -14,13 +14,13 @@ const categories = [
 ];
 
 const Categories = () => {
-  const [width, setWitdh] = useState<number>(0);
+  const [width, setWidth] = useState<number>(0);
 
   const carousel: any = useRef();
 
   useEffect(() => {
     const handleResize = () => {
-      setWitdh(carousel.current.scrollWidth - carousel.current.offsetWidth);
+      setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
     };
     window.addEventListener('resize', handleResize);
   }, []);

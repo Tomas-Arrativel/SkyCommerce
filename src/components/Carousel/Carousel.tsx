@@ -55,12 +55,9 @@ const Carousel = ({ categorie }: CarouselProps) => {
 
   console.log(data);
   return (
-    <motion.div
-      ref={products}
-      onLoad={handleLoad}
-      className='carousel__products'
-    >
+    <motion.div ref={products} className='carousel__products'>
       <motion.div
+        onLoad={handleLoad}
         className='products__card'
         drag='x'
         dragConstraints={{
