@@ -2,3 +2,13 @@
   margin-top: 16rem;
   padding: 1rem;
 }
+
+.carousel__container h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.carousel__container {
+  background-color: #fff;
+  padding: 1rem;
+}

@@ -5,7 +5,10 @@ import './SomeProducts.css';
 const SomeProducts = () => {
   return (
     <div className='someprods'>
-      <Carousel categorie='Technology' />
+      <div className='carousel__container'>
+        <h2>The best on Technology</h2>
+        <Carousel categorie='Technology' />
+      </div>
     </div>
   );
 };
