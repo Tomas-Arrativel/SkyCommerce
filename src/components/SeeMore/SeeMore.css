@@ -1,0 +1,29 @@
+.products {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.products__card {
+  flex: 1;
+}
+.products__card img {
+  height: 200px;
+}
+
+@media (max-width: 777px) {
+  .products {
+    flex-direction: column;
+    align-items: center;
+  }
+  .products__card img {
+    height: 300px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .products__card img {
+    height: 200px;
+  }
+}
