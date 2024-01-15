@@ -55,34 +55,30 @@ const Carousel = ({ categorie }: CarouselProps) => {
 
   console.log(data);
   return (
-    <div className='carousel__container'>
-      <h2>The best on {categorie}</h2>
-
+    <motion.div
+      ref={products}
+      onLoad={handleLoad}
+      className='carousel__products'
+    >
       <motion.div
-        ref={products}
-        onLoad={handleLoad}
-        className='carousel__products'
+        className='products__card'
+        drag='x'
+        dragConstraints={{
+          right: 0,
+          left: -width,
+        }}
       >
-        <motion.div
-          className='products__card'
-          drag='x'
-          dragConstraints={{
-            right: 0,
-            left: -width,
-          }}
-        >
-          {data &&
-            data.products.map((product: Product) => (
-              <motion.div key={product.id} className='card__product'>
-                <img
-                  src={product.images[0]}
-                  alt={`${product.title} ${product.id}`}
-                />
-              </motion.div>
-            ))}
-        </motion.div>
+        {data &&
+          data.products.map((product: Product) => (
+            <motion.div key={product.id} className='card__product'>
+              <img
+                src={product.images[0]}
+                alt={`${product.title} ${product.id}`}
+              />
+            </motion.div>
+          ))}
       </motion.div>
-    </div>
+    </motion.div>
   );
 };
 
