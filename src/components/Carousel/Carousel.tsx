@@ -1,4 +1,4 @@
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import { fetchData } from '../../api/api';
 
@@ -20,7 +20,6 @@ const Carousel = ({ categorie }: CarouselProps) => {
   const [data, setData] = useState<any>();
 
   const products: any = useRef();
-  const controls = useAnimation();
 
   // Endpoint for api call
   let endpoint: string;
@@ -29,39 +28,23 @@ const Carousel = ({ categorie }: CarouselProps) => {
     endpoint = '?limit=10&skip=25&select=images';
 
   // handling window resize events, and fetching data
+  // api call
+  const fetchDataAsync = async () => {
+    try {
+      const result = await fetchData(endpoint);
+      setData(result);
+    } catch (error: any) {
+      console.error('Error while obtaining data:', error.message);
+    }
+  };
+  fetchDataAsync();
+
   useEffect(() => {
     // Resize function for the slider
 
-    // api call
-    const fetchDataAsync = async () => {
-      try {
-        const result = await fetchData(endpoint);
-        setData(result);
-      } catch (error: any) {
-        console.error('Error while obtaining data:', error.message);
-      }
-    };
-    fetchDataAsync();
-
-    const handleResize = () => {
-      setWidth(products.current.scrollWidth - products.current.offsetWidth);
-      // Reset x value when new products are loaded
-      controls.start({ x: 0 });
-    };
-
-    handleResize();
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, [controls]);
-
-  const handleLoad = () => {
-    // Ensure that the ref gets the correct value
     setWidth(products.current.scrollWidth - products.current.offsetWidth);
-  };
+  }, []);
+
   console.log(products.current);
 
   return (
@@ -69,22 +52,20 @@ const Carousel = ({ categorie }: CarouselProps) => {
       <motion.div
         ref={products}
         className='products__card'
-        animate={controls}
         drag='x'
         dragConstraints={{
           right: 0,
           left: -width,
         }}
-        onLoad={handleLoad}
       >
         {data &&
           data.products.map((product: Product) => (
-            <motion.div key={product.id} className='card__product'>
+            <div key={product.id} className='card__product'>
               <img
                 src={product.images[0]}
                 alt={`${product.title} ${product.id}`}
               />
-            </motion.div>
+            </div>
           ))}
       </motion.div>
     </motion.div>
