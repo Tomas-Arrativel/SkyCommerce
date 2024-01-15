@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import { fetchData } from '../../api/api';
 
@@ -20,6 +20,7 @@ const Carousel = ({ categorie }: CarouselProps) => {
   const [data, setData] = useState<any>();
 
   const products: any = useRef();
+  const controls = useAnimation();
 
   // Endpoint for api call
   let endpoint: string;
@@ -44,26 +45,37 @@ const Carousel = ({ categorie }: CarouselProps) => {
 
     const handleResize = () => {
       setWidth(products.current.scrollWidth - products.current.offsetWidth);
+      // Reset x value when new products are loaded
+      controls.start({ x: 0 });
     };
+
+    handleResize();
+
     window.addEventListener('resize', handleResize);
-  }, []);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [controls]);
 
   const handleLoad = () => {
     // Ensure that the ref gets the correct value
     setWidth(products.current.scrollWidth - products.current.offsetWidth);
   };
+  console.log(products.current);
 
-  console.log(data);
   return (
-    <motion.div ref={products} className='carousel__products'>
+    <motion.div className='carousel__products'>
       <motion.div
-        onLoad={handleLoad}
+        ref={products}
         className='products__card'
+        animate={controls}
         drag='x'
         dragConstraints={{
           right: 0,
           left: -width,
         }}
+        onLoad={handleLoad}
       >
         {data &&
           data.products.map((product: Product) => (
