@@ -16,6 +16,16 @@
   padding: 1rem;
 }
 
+.container__link {
+  text-decoration: none;
+  color: var(--dark-aqua);
+  font-size: 1.1rem;
+}
+.container__link:hover {
+  text-decoration: underline;
+  color: var(--aqua);
+}
+
 @media (max-width: 700px) {
   .someprods {
     margin-top: 1rem;
