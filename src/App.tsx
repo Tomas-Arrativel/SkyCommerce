@@ -1,5 +1,11 @@
 import './App.css';
-import { Banner, Categories, Navbar, SomeProducts } from './containers/exports';
+import {
+  Banner,
+  Categories,
+  Footer,
+  Navbar,
+  SomeProducts,
+} from './containers/exports';
 
 function App() {
   return (
@@ -12,6 +18,7 @@ function App() {
         <Banner />
         <SomeProducts />
       </main>
+      <Footer />
     </>
   );
 }
