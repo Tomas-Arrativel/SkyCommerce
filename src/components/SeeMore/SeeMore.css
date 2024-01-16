@@ -1,7 +1,6 @@
 .products {
   display: flex;
   gap: 1.5rem;
-  flex-wrap: wrap;
 }
 
 .products__card {
@@ -11,10 +10,17 @@
   height: 200px;
 }
 
-@media (max-width: 777px) {
+@media (max-width: 1760px) {
+  .products {
+    overflow-x: scroll;
+  }
+}
+
+@media (max-width: 600px) {
   .products {
     flex-direction: column;
     align-items: center;
+    overflow-x: hidden;
   }
   .products__card img {
     height: 300px;
