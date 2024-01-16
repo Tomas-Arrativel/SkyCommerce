@@ -17,19 +17,13 @@
 }
 
 @media (max-width: 600px) {
-  .products {
-    flex-direction: column;
-    align-items: center;
-    overflow-x: hidden;
-  }
   .products__card img {
-    height: 300px;
-    width: 100%;
+    height: 150px;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 430px) {
   .products__card img {
-    height: 200px;
+    height: 100px;
   }
 }

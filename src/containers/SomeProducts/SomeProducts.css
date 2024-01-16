@@ -32,6 +32,12 @@
   }
 }
 
+@media (max-width: 600px) {
+  .carousel__container h2 {
+    font-size: 1.2rem;
+  }
+}
+
 @media (max-width: 500px) {
   .someprods {
     padding: 0;
