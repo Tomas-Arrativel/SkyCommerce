@@ -34,3 +34,9 @@ main {
     padding: 0 1rem;
   }
 }
+
+@media (max-width: 736px) {
+  main {
+    min-height: 65vh;
+  }
+}
