@@ -1,11 +1,8 @@
+import { Route, Routes } from 'react-router-dom';
+
 import './App.css';
-import {
-  Banner,
-  Categories,
-  Footer,
-  Navbar,
-  SomeProducts,
-} from './containers/exports';
+import { Categories, Footer, Navbar } from './containers/exports';
+import { Home } from './pages/exports';
 
 function App() {
   return (
@@ -14,10 +11,10 @@ function App() {
         <Navbar />
         <Categories />
       </header>
-      <main>
-        <Banner />
-        <SomeProducts />
-      </main>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route />
+      </Routes>
       <Footer />
     </>
   );
