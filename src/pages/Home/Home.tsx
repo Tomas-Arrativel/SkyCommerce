@@ -4,10 +4,8 @@ import { Banner, SomeProducts } from '../../containers/exports';
 function Home() {
   return (
     <>
-      <main>
-        <Banner />
-        <SomeProducts />
-      </main>
+      <Banner />
+      <SomeProducts />
     </>
   );
 }
