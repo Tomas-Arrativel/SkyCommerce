@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 
 import './Categories.css';
 import { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const categories = [
   'Technology',
@@ -34,7 +35,12 @@ const Categories = () => {
       >
         {categories.map((cat, i) => (
           <motion.div key={i}>
-            <p className='categories__category'>{cat}</p>
+            <Link
+              to={`/category/${cat.toLowerCase()}`}
+              className='categories__category'
+            >
+              {cat}
+            </Link>
           </motion.div>
         ))}
       </motion.div>

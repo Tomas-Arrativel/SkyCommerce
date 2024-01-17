@@ -14,6 +14,7 @@
   color: var(--gray);
   font-weight: 600;
   pointer-events: stroke;
+  text-decoration: none;
 }
 .categories__category:hover {
   cursor: pointer;
