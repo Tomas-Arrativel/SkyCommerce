@@ -6,12 +6,14 @@ import { Link } from 'react-router-dom';
 
 const categories = [
   'Technology',
-  'Clothes',
+  'Men',
+  'Women',
+  'Accessories',
   'Groceries',
   'Decorations',
-  'Furnitures',
-  'Cars',
-  'Motorcycles',
+  'Hygiene',
+  'Transport',
+  'Lighting',
 ];
 
 const Categories = () => {
