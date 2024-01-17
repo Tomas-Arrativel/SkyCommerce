@@ -18,6 +18,10 @@
   font-size: 2rem;
 }
 
+.nav__link-style {
+  text-decoration: none;
+}
+
 @media (max-width: 1360px) {
   .nav {
     padding: 1rem 8rem;

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Search, ShoppingCart } from '../../components/exports';
 
 import './Navbar.css';
+import { Link } from 'react-router-dom';
 const Navbar = () => {
   const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
 
@@ -24,11 +25,15 @@ const Navbar = () => {
   return (
     <div className='nav-container'>
       <nav className='nav'>
-        <h1 className='nav__title'>
-          Sky<span>Commerce</span>
-        </h1>
+        <Link className='nav__link-style' to='/'>
+          <h1 className='nav__title'>
+            Sky<span>Commerce</span>
+          </h1>
+        </Link>
         {!isMobile ? <Search /> : null}
-        <ShoppingCart />
+        <Link className='nav__link-style' to='/shopping-cart'>
+          <ShoppingCart />
+        </Link>
       </nav>
       {isMobile ? <Search /> : null}
     </div>

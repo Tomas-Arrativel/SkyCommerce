@@ -11,10 +11,12 @@ function App() {
         <Navbar />
         <Categories />
       </header>
+
       <Routes>
         <Route path='/' element={<Home />} />
         <Route />
       </Routes>
+
       <Footer />
     </>
   );
