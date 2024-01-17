@@ -2,16 +2,17 @@ import { useParams } from 'react-router-dom';
 import './Category.css';
 import { useEffect, useState } from 'react';
 import { fetchData } from '../../api/api';
+import { Product } from '../../components/exports';
 
 const Category = () => {
-  const [data, setData] = useState();
+  const [data, setData] = useState<any>();
 
   const { cat } = useParams();
 
   let endpoint: string;
   switch (cat) {
     case 'technology':
-      endpoint = '?limit=10';
+      endpoint = '?limit=10&skip=0';
       break;
     case 'men':
       endpoint = '?limit=10&skip=50';
@@ -25,7 +26,7 @@ const Category = () => {
     case 'groceries':
       endpoint = 'category/groceries';
       break;
-    case 'decoration':
+    case 'decorations':
       endpoint = '?limit=10&skip=25';
       break;
     case 'hygiene':
@@ -50,9 +51,21 @@ const Category = () => {
     getProductsByCat();
   }, [cat]);
 
-  console.log(data);
-
-  return <div>Category {cat}</div>;
+  return (
+    <div>
+      {data &&
+        data.products.map((prod: any) => (
+          <Product
+            title={prod.title}
+            price={prod.price}
+            discount={prod.discountPercentage}
+            image={prod.images[0]}
+            id={prod.id}
+            key={prod.id}
+          />
+        ))}
+    </div>
+  );
 };
 
 export default Category;
