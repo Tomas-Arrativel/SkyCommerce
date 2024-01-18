@@ -52,7 +52,7 @@ const Category = () => {
   }, [cat]);
 
   return (
-    <div>
+    <section className='products__container'>
       {data &&
         data.products.map((prod: any) => (
           <Product
@@ -64,7 +64,7 @@ const Category = () => {
             key={prod.id}
           />
         ))}
-    </div>
+    </section>
   );
 };
 
