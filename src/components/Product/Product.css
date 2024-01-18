@@ -24,7 +24,6 @@
   font-size: 1.35rem;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .product__info-price {
