@@ -38,7 +38,7 @@ const Categories = () => {
         {categories.map((cat, i) => (
           <motion.div key={i}>
             <Link
-              to={`/category/${cat.toLowerCase()}`}
+              to={`category/${cat.toLowerCase()}`}
               className='categories__category'
             >
               {cat}

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 const Footer = () => {
@@ -9,29 +10,32 @@ const Footer = () => {
 
       <div className='footer__links-container'>
         <ul className='footer__links'>
-          <a href='#'>
+          <Link to='/category/technology'>
             <li>Technology</li>
-          </a>
-          <a href='#'>
-            <li>Clothes</li>
-          </a>
-          <a href='#'>
-            <li>Groceries</li>
-          </a>
-          <a href='#'>
-            <li>Decoration</li>
-          </a>
+          </Link>
+          <Link to='/category/men'>
+            <li>Men</li>
+          </Link>
+          <Link to='/category/women'>
+            <li>Women</li>
+          </Link>
+          <Link to='/category/accessories'>
+            <li>Accessories</li>
+          </Link>
         </ul>
         <ul className='footer__links'>
-          <a href='#'>
-            <li>Furnitures</li>
-          </a>
-          <a href='#'>
-            <li>Cars</li>
-          </a>
-          <a href='#'>
-            <li>Motorcycles</li>
-          </a>
+          <Link to='/category/decorations'>
+            <li>Decorations</li>
+          </Link>
+          <Link to='/category/hygiene'>
+            <li>Hygiene</li>
+          </Link>
+          <Link to='/category/transport'>
+            <li>Transport</li>
+          </Link>
+          <Link to='/category/lighting'>
+            <li>Lighting</li>
+          </Link>
         </ul>
       </div>
     </footer>

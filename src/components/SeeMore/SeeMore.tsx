@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { fetchData } from '../../api/api';
 
 import './SeeMore.css';
+import { Link } from 'react-router-dom';
 
 interface CarouselProps {
   categorie: string;
@@ -40,12 +41,16 @@ const SeeMore = ({ categorie }: CarouselProps) => {
     <div className='products'>
       {data &&
         data.products.map((product: Product) => (
-          <a href='#' key={product.id} className='products__card'>
+          <Link
+            to={`product/${product.id}`}
+            key={product.id}
+            className='products__card'
+          >
             <img
               src={product.images[0]}
               alt={`${product.title} ${product.id}`}
             />
-          </a>
+          </Link>
         ))}
     </div>
   );

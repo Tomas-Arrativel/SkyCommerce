@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { SeeMore } from '../../components/exports';
 
 import './SomeProducts.css';
@@ -8,17 +9,17 @@ const SomeProducts = () => {
       <div className='carousel__container'>
         <h2>The best on Technology</h2>
         <SeeMore categorie='Technology' />
-        <a href='#' className='container__link'>
+        <Link to='category/technology' className='container__link'>
           See More
-        </a>
+        </Link>
       </div>
 
       <div className='carousel__container'>
         <h2>The best on Decoration</h2>
         <SeeMore categorie='Decoration' />
-        <a href='#' className='container__link'>
+        <Link to='category/decorations' className='container__link'>
           See More
-        </a>
+        </Link>
       </div>
     </div>
   );
