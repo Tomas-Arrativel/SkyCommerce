@@ -91,3 +91,31 @@
 .info__btn:hover {
   background-color: #997c71;
 }
+
+/* Media queries */
+@media (max-width: 1150px) {
+  .product-page {
+    gap: 1rem;
+  }
+  .product-page__img {
+    min-width: 60%;
+  }
+}
+
+@media (max-width: 800px) {
+  .product-page {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 400px) {
+  .product-page {
+    padding-bottom: 0;
+  }
+  .info__price-off {
+    font-size: 1.2rem;
+  }
+  .info__price-price {
+    font-size: 1.3rem;
+  }
+}
