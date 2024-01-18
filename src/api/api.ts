@@ -1,4 +1,4 @@
-const BASE_URL = 'https://dummyjson.com/products/';
+const BASE_URL = 'https://dummyjson.com/products';
 
 const fetchData = async (endpoints: string = '') => {
   const url = endpoints ? `${BASE_URL}/${endpoints}` : BASE_URL;

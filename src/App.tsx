@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 
 import './App.css';
 import { Categories, Navbar, Footer } from './containers/exports';
-import { Category, Home, NotFound, ProductPage } from './pages/exports';
+import { Category, Home, NotFound, ProductPage, Search } from './pages/exports';
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/category/:cat' element={<Category />} />
           <Route path='/product/:id' element={<ProductPage />} />
-          <Route path='/search/:query' />
+          <Route path='/search/:query' element={<Search />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
       </main>
