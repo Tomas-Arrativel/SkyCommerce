@@ -1,0 +1,53 @@
+.link__styles {
+  text-decoration: none;
+  color: var(--black);
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.product__image {
+  width: 100%;
+  height: 300px;
+}
+
+.product__info {
+  margin-top: 0.7rem;
+}
+
+.product__info h2 {
+  font-size: 1.35rem;
+}
+
+.product__info-price {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.price__discount {
+  color: var(--dark-aqua);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.price__price {
+  font-size: 1.1rem;
+  color: var(--aqua);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 1000;
+}
+
+.price__price span {
+  color: #9e9e9e;
+  text-decoration: line-through;
+  font-weight: 400;
+}
