@@ -1,9 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 
 import './App.css';
-import { Categories, Footer, Navbar } from './containers/exports';
-import { Category, Home } from './pages/exports';
-import NotFound from './pages/NotFound/NotFound';
+import { Categories, Navbar, Footer } from './containers/exports';
+import { Category, Home, NotFound, ProductPage } from './pages/exports';
 
 function App() {
   return (
@@ -16,6 +15,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/category/:cat' element={<Category />} />
+          <Route path='/product/:id' element={<ProductPage />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
       </main>
