@@ -10,10 +10,14 @@ interface CartItem {
 }
 
 interface ShoppingCartContext {
+  openCart: () => void;
+  closeCart: () => void;
   getItemQuantity: (id: number | undefined) => number;
   increaseCartQuantity: (id: number | undefined) => void;
   decreaseCartQuantity: (id: number | undefined) => void;
   removeFromCart: (id: number | undefined) => void;
+  cartQuantity: number;
+  cartItems: CartItem[];
 }
 
 const ShoppingCartContext = createContext({} as ShoppingCartContext);
@@ -24,6 +28,7 @@ export function useShoppingContext() {
 
 export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [isOpen, setIsOpen] = useState(false);
 
   const getItemQuantity = (id: number | undefined) => {
     return cartItems.find((item) => item.id === id)?.quantity || 0;
@@ -36,7 +41,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
       } else {
         return currItems.map((item) => {
           if (item.id === id) {
-            return { ...item, quantity: item.quantity++ };
+            return { ...item, quantity: item.quantity + 1 };
           } else {
             return item;
           }
@@ -52,7 +57,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
       } else {
         return currItems.map((item) => {
           if (item.id === id) {
-            return { ...item, quantity: item.quantity-- };
+            return { ...item, quantity: item.quantity - 1 };
           } else {
             return item;
           }
@@ -67,6 +72,12 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     });
   };
 
+  const openCart = () => setIsOpen(true);
+  const closeCart = () => setIsOpen(false);
+  const cartQuantity = cartItems.reduce(
+    (quantity, item) => item.quantity + quantity,
+    0,
+  );
   return (
     <ShoppingCartContext.Provider
       value={{
@@ -74,6 +85,10 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
         increaseCartQuantity,
         decreaseCartQuantity,
         removeFromCart,
+        openCart,
+        closeCart,
+        cartItems,
+        cartQuantity,
       }}
     >
       {children}
