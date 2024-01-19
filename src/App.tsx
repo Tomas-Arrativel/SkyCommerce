@@ -2,7 +2,14 @@ import { Route, Routes } from 'react-router-dom';
 
 import './App.css';
 import { Categories, Navbar, Footer } from './containers/exports';
-import { Category, Home, NotFound, ProductPage, Search } from './pages/exports';
+import {
+  Category,
+  Home,
+  NotFound,
+  ProductPage,
+  Search,
+  ShoppingCartPage,
+} from './pages/exports';
 import { ShoppingCartProvider } from './context/ShoppingCartContext';
 
 function App() {
@@ -19,6 +26,7 @@ function App() {
           <Route path='/product/:id' element={<ProductPage />} />
           <Route path='/search/:query' element={<Search />} />
           <Route path='*' element={<NotFound />} />
+          <Route path='shopping-cart' element={<ShoppingCartPage />} />
         </Routes>
       </main>
 
