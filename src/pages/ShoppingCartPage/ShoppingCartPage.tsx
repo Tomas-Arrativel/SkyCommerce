@@ -11,13 +11,14 @@ const ShoppingCartPage = () => {
         <h2>Cart</h2>
       </div>
       <div className='cartpage__items'>
-        {cartItems ? (
+        {cartItems.length > 0 ? (
           cartItems.map((item) => (
             <CartItem id={item.id} quantity={item.quantity} key={item.id} />
           ))
         ) : (
-          <div>
-            <h2>there isn't any Product added to cart</h2>
+          <div className='empty__cart'>
+            <img src='../../cart/empty-cart.webp' alt='Empty cart image' />
+            <h2>There isn't any Product added to cart</h2>
             <Link to='/'>Add products</Link>
           </div>
         )}
