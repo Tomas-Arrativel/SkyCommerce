@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import './Product.css';
+import { discountPrice } from '../../utilities/discountedPrice';
 
 interface ProductProps {
   discount: number;
@@ -10,8 +11,6 @@ interface ProductProps {
 }
 
 const Product = ({ discount, price, image, title, id }: ProductProps) => {
-  const priceWDiscount: number = price - price * (discount / 100);
-
   return (
     <Link className='link__styles' to={`/product/${id}`}>
       <div id={`product-${id}`} className='product'>
@@ -22,7 +21,7 @@ const Product = ({ discount, price, image, title, id }: ProductProps) => {
             <p className='price__discount'>{discount}% OFF</p>
             <p className='price__price'>
               <span className='price__price-old'>${price}</span> $
-              {priceWDiscount.toFixed(2)}
+              {discountPrice(price, discount)}
             </p>
           </div>
         </div>

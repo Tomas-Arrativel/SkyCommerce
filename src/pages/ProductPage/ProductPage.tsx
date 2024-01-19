@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import './ProductPage.css';
 import { useEffect, useState } from 'react';
 import { fetchData } from '../../api/api';
+import { discountPrice } from '../../utilities/discountedPrice';
 
 interface ProductProps {
   brand: string;
@@ -33,9 +34,6 @@ const ProductPage = () => {
     getProductsByCat();
   }, []);
 
-  const discountedPrice =
-    data && data?.price - data?.price * (data?.discountPercentage / 100);
-
   return (
     <div className='product-page' id={id}>
       <img
@@ -54,7 +52,8 @@ const ProductPage = () => {
         <div className='info__price'>
           <p className='info__price-off'>{data?.discountPercentage}% OFF</p>
           <p className='info__price-price'>
-            <span>${data?.price}</span> ${discountedPrice?.toFixed(2)}
+            <span>${data?.price}</span> $
+            {discountPrice(data?.price, data?.discountPercentage)}
           </p>
         </div>
         <button className='info__btn'>Add to cart</button>
