@@ -34,6 +34,8 @@ const ProductPage = () => {
     getProductsByCat();
   }, []);
 
+  const quantity: number = 0;
+
   return (
     <div className='product-page' id={id}>
       <img
@@ -56,7 +58,20 @@ const ProductPage = () => {
             {discountPrice(data?.price, data?.discountPercentage)}
           </p>
         </div>
-        <button className='info__btn'>Add to cart</button>
+        {quantity === 0 ? (
+          <button className='info__btn'>Add to cart</button>
+        ) : (
+          <div className='info__btn-incart'>
+            <div className='incart__quantity'>
+              <button className='incart__quantity-btn'>-</button>
+              <p className='incart__quantity-value'>
+                <span>{quantity}</span> in cart
+              </p>
+              <button className='incart__quantity-btn'>+</button>
+            </div>
+            <button className='incart__remove'>Remove</button>
+          </div>
+        )}
       </div>
     </div>
   );
