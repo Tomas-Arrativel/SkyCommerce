@@ -3,6 +3,7 @@ import './ProductPage.css';
 import { useEffect, useState } from 'react';
 import { fetchData } from '../../api/api';
 import { discountPrice } from '../../utilities/discountedPrice';
+import { useShoppingContext } from '../../context/ShoppingCartContext';
 
 interface ProductProps {
   brand: string;
@@ -22,6 +23,13 @@ const ProductPage = () => {
   const [data, setData] = useState<ProductProps>();
   const { id } = useParams();
 
+  const {
+    getItemQuantity,
+    increaseCartQuantity,
+    decreaseCartQuantity,
+    removeFromCart,
+  } = useShoppingContext();
+
   useEffect(() => {
     const getProductsByCat = async () => {
       try {
@@ -34,7 +42,7 @@ const ProductPage = () => {
     getProductsByCat();
   }, []);
 
-  const quantity: number = 0;
+  const quantity = getItemQuantity(data?.id);
 
   return (
     <div className='product-page' id={id}>
@@ -59,17 +67,37 @@ const ProductPage = () => {
           </p>
         </div>
         {quantity === 0 ? (
-          <button className='info__btn'>Add to cart</button>
+          <button
+            className='info__btn'
+            onClick={() => increaseCartQuantity(data?.id)}
+          >
+            Add to cart
+          </button>
         ) : (
           <div className='info__btn-incart'>
             <div className='incart__quantity'>
-              <button className='incart__quantity-btn'>-</button>
+              <button
+                className='incart__quantity-btn'
+                onClick={() => decreaseCartQuantity(data?.id)}
+              >
+                -
+              </button>
               <p className='incart__quantity-value'>
                 <span>{quantity}</span> in cart
               </p>
-              <button className='incart__quantity-btn'>+</button>
+              <button
+                className='incart__quantity-btn'
+                onClick={() => increaseCartQuantity(data?.id)}
+              >
+                +
+              </button>
             </div>
-            <button className='incart__remove'>Remove</button>
+            <button
+              className='incart__remove'
+              onClick={() => removeFromCart(data?.id)}
+            >
+              Remove
+            </button>
           </div>
         )}
       </div>

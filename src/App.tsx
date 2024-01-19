@@ -3,10 +3,11 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import { Categories, Navbar, Footer } from './containers/exports';
 import { Category, Home, NotFound, ProductPage, Search } from './pages/exports';
+import { ShoppingCartProvider } from './context/ShoppingCartContext';
 
 function App() {
   return (
-    <>
+    <ShoppingCartProvider>
       <header>
         <Navbar />
         <Categories />
@@ -22,7 +23,7 @@ function App() {
       </main>
 
       <Footer />
-    </>
+    </ShoppingCartProvider>
   );
 }
 
