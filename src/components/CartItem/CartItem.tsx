@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
-import './CartItem.css';
+import { IoMdClose } from 'react-icons/io';
 import { fetchData } from '../../api/api';
+
+import './CartItem.css';
+import { Link } from 'react-router-dom';
 
 interface CartItemProps {
   id: number | undefined;
@@ -33,12 +36,20 @@ const CartItem = ({ id, quantity }: CartItemProps) => {
   return (
     <div className='cartitem'>
       <div className='cartitem__item'>
-        <img src={data?.images[0]} alt={data?.title} />
+        <Link to={`/product/${id}`}>
+          <img src={data?.images[0]} alt={data?.title} />
+        </Link>
         <div className='cartitem__item-info'>
           <p>
-            {data?.title} <span>x{quantity}</span>
+            {data?.title} <span>x {quantity}</span>
           </p>
           <p>{data?.price}</p>
+        </div>
+      </div>
+      <div className='cartitem__delete'>
+        <p>Delete</p>
+        <div className='cartitem__delete-close'>
+          <IoMdClose />
         </div>
       </div>
     </div>
