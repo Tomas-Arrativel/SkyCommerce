@@ -57,3 +57,31 @@
   font-weight: 400;
   text-decoration: line-through;
 }
+
+/* Cart delete button */
+.cartitem__delete {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.cartitem__delete p {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #782424;
+}
+
+.cartitem__delete-close {
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px #d3d3d3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.8rem;
+  transition: transform 0.2s;
+}
+.cartitem__delete-close:hover {
+  transform: scale(1.08);
+}
