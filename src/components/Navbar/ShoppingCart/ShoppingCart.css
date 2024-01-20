@@ -11,9 +11,12 @@
 
 .cart__items {
   font-size: 1.05rem;
-  color: var(--gray);
+  color: var(--black);
   position: absolute;
-  top: 4px;
-  left: 17px;
+  top: 15px;
+  left: 23px;
   cursor: pointer;
+  background-color: var(--gray);
+  padding: 0.07rem 0.2rem;
+  border-radius: 50%;
 }
