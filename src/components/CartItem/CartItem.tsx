@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { discountPrice } from '../../utilities/discountedPrice';
 
 import './CartItem.css';
+import { useShoppingContext } from '../../context/ShoppingCartContext';
 
 interface CartItemProps {
   id: number | undefined;
@@ -21,6 +22,7 @@ interface ProductProp {
 
 const CartItem = ({ id, quantity }: CartItemProps) => {
   const [data, setData] = useState<ProductProp>();
+  const { removeFromCart } = useShoppingContext();
 
   useEffect(() => {
     if (!id) return;
@@ -58,7 +60,10 @@ const CartItem = ({ id, quantity }: CartItemProps) => {
       </div>
       <div className='cartitem__delete'>
         <p>Delete</p>
-        <div className='cartitem__delete-close'>
+        <div
+          className='cartitem__delete-close'
+          onClick={() => removeFromCart(id)}
+        >
           <IoMdClose />
         </div>
       </div>
