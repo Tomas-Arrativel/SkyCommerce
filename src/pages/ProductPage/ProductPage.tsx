@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import './ProductPage.css';
 import { useEffect, useState } from 'react';
 import { fetchData } from '../../api/api';
@@ -98,6 +98,9 @@ const ProductPage = () => {
             >
               Remove
             </button>
+            <Link className='goto-link' to='/shopping-cart'>
+              Go to the cart
+            </Link>
           </div>
         )}
       </div>

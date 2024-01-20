@@ -145,6 +145,16 @@
 .incart__remove:hover {
   background-color: #f31515;
 }
+.goto-link {
+  color: var(--dark-aqua);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+.goto-link:hover {
+  color: var(--aqua);
+  text-decoration: underline;
+}
 
 /* Media queries */
 @media (max-width: 1150px) {
