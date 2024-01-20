@@ -46,7 +46,7 @@ const CartItem = ({ id, quantity }: CartItemProps) => {
           <img src={data?.images[0]} alt={data?.title} />
         </Link>
         <div className='cartitem__item-info'>
-          <p>
+          <p className='item__info-title'>
             {data?.title} <span>x {quantity}</span>
           </p>
           <p className='item__info-off'>{data?.discountPercentage}% OFF</p>

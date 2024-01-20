@@ -18,3 +18,42 @@
   object-fit: cover;
   object-position: center;
 }
+
+/* styling the info text */
+.cartitem__item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+/* title and quantity */
+.item__info-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--black);
+}
+.item__info-title span {
+  font-size: 0.9rem;
+  color: #5f6765;
+}
+
+/* discount percentaje */
+.item__info-off {
+  color: var(--dark-aqua);
+  font-weight: 1000;
+  font-size: 1.1rem;
+}
+
+/* Price and discounted price */
+.item__info-price {
+  font-size: 1.1rem;
+  font-weight: 1000;
+  color: var(--aqua);
+}
+
+.item__info-price span {
+  color: #5f6765;
+  font-size: 0.9rem;
+  font-weight: 400;
+  text-decoration: line-through;
+}
