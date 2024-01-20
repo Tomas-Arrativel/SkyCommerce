@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import { IoMdClose } from 'react-icons/io';
 import { fetchData } from '../../api/api';
+import { Link } from 'react-router-dom';
+import { discountPrice } from '../../utilities/discountedPrice';
 
 import './CartItem.css';
-import { Link } from 'react-router-dom';
 
 interface CartItemProps {
   id: number | undefined;
@@ -13,6 +14,7 @@ interface CartItemProps {
 interface ProductProp {
   id: number;
   price: number;
+  discountPercentage: number;
   title: string;
   images: string[];
 }
@@ -24,7 +26,9 @@ const CartItem = ({ id, quantity }: CartItemProps) => {
     if (!id) return;
     const fetchProdById = async () => {
       try {
-        const result = await fetchData(`${id}?select=title,price,images`);
+        const result = await fetchData(
+          `${id}?select=title,price,images,discountPercentage`,
+        );
         setData(result);
       } catch (error) {
         console.error('an error has occurred: ' + error);
@@ -32,6 +36,8 @@ const CartItem = ({ id, quantity }: CartItemProps) => {
     };
     fetchProdById();
   }, []);
+
+  const price = data && data?.price * quantity;
 
   return (
     <div className='cartitem'>
@@ -43,7 +49,11 @@ const CartItem = ({ id, quantity }: CartItemProps) => {
           <p>
             {data?.title} <span>x {quantity}</span>
           </p>
-          <p>{data?.price}</p>
+          <p className='item__info-off'>{data?.discountPercentage}% OFF</p>
+          <p className='item__info-price'>
+            <span>${price}</span> $
+            {discountPrice(price, data?.discountPercentage)}
+          </p>
         </div>
       </div>
       <div className='cartitem__delete'>
