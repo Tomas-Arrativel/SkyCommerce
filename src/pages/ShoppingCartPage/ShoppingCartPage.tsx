@@ -1,10 +1,31 @@
 import { Link } from 'react-router-dom';
-import { CartItem } from '../../components/exports';
+import { CartItem, TotalPrice } from '../../components/exports';
 import { useShoppingContext } from '../../context/ShoppingCartContext';
 import './ShoppingCartPage.css';
+import { useEffect } from 'react';
+import { fetchData } from '../../api/api';
+import { discountPrice } from '../../utilities/discountedPrice';
 
 const ShoppingCartPage = () => {
   const { cartItems } = useShoppingContext();
+
+  let prices: any = [];
+  useEffect(() => {
+    const getProductPrice = async () => {
+      try {
+        cartItems.map(async (item) => {
+          const result = await fetchData(
+            `${item.id}?select=price,discountPercentage`,
+          );
+          prices.push(result);
+        });
+      } catch (error) {
+        console.error('An error has ocurred: ', error);
+      }
+    };
+    getProductPrice();
+  }, [cartItems]);
+
   return (
     <section className='cartpage'>
       <div className='cartpage__title'>
@@ -22,6 +43,7 @@ const ShoppingCartPage = () => {
             <Link to='/'>Add products</Link>
           </div>
         )}
+        <TotalPrice items={prices} />
       </div>
     </section>
   );
