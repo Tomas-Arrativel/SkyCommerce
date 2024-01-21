@@ -4,7 +4,6 @@ import { useShoppingContext } from '../../context/ShoppingCartContext';
 import './ShoppingCartPage.css';
 import { useEffect } from 'react';
 import { fetchData } from '../../api/api';
-import { discountPrice } from '../../utilities/discountedPrice';
 
 const ShoppingCartPage = () => {
   const { cartItems } = useShoppingContext();
@@ -17,6 +16,8 @@ const ShoppingCartPage = () => {
           const result = await fetchData(
             `${item.id}?select=price,discountPercentage`,
           );
+          console.log(item);
+
           prices.push(result);
         });
       } catch (error) {
