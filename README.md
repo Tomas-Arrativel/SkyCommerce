@@ -1,30 +1,40 @@
-# React + TypeScript + Vite
+# SkyCommerce React, TypeScript
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project was made using React and Typescript.
+For the products, I used an api from [DummyJson](https://dummyjson.com/) called [Products](https://dummyjson.com/docs/products)
 
-Currently, two official plugins are available:
+Currently, an online website is available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [SkyCommerce](https://sky-commerce.vercel.app/) using [Vercel](https://vercel.com/).
 
-## Expanding the ESLint configuration
+## About the project
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+This project was made to see how much progress I have made in frontend development so I put all my efforts in it.
+This is a Ecommerce where I tried to use as much functionality as possible to demonstrate that I can do a lot of things.
+Used:
 
-- Configure the top-level `parserOptions` property like this:
+- UseState
+- UseEffect
+- UseContext
+- Made my own hooks
+- I used some libraries as Framer motion
+- Used localStorage to store Products on the cart locally
+- And more...
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+## How to Install
+
+- Download and unzip repo
+- Go to unzipped folder
+- Install packages with ```$  npm install ```
+
+## Run the code
+Go to the console, make sure you are in the SkyCommerce folder and run:
+
+```bash
+  npm run dev
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+### Authors
+
+- [@Tomas-arrativel](https://github.com/Tomas-Arrativel)
