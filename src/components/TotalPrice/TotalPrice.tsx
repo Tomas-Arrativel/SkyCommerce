@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useShoppingContext } from '../../context/ShoppingCartContext';
 import { discountPrice } from '../../utilities/discountedPrice';
 import './TotalPrice.css';
