@@ -12,19 +12,16 @@ interface TotalPriceProps {
 const TotalPrice = ({ items }: any) => {
   const { getItemQuantity } = useShoppingContext();
   let finalPrice: number = 0;
-  useEffect(() => {
-    items.map((item: TotalPriceProps) => {
-      const quantity = getItemQuantity(item.id);
-      const discountedPrice: any = discountPrice(
-        item.price,
-        item.discountPercentage,
-      );
-      finalPrice += quantity * discountedPrice;
-      console.log(item);
-    });
-  }, [items]);
+  items.map((item: TotalPriceProps) => {
+    const quantity = getItemQuantity(item.id);
+    const discountedPrice: any = discountPrice(
+      item.price,
+      item.discountPercentage,
+    );
+    finalPrice += quantity * discountedPrice;
+  });
 
-  return <h2 className='final__price'>Total: {finalPrice}</h2>;
+  return <h2 className='final__price'>Total: {finalPrice.toFixed(2)}</h2>;
 };
 
 export default TotalPrice;
